@@ -2,756 +2,760 @@
 <html lang="en">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>My Portfolio</title>
+    <title>My Portfolio</title>
 
-<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
-<style>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+            scroll-behavior: smooth;
+        }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Segoe UI',sans-serif;
-scroll-behavior:smooth;
-}
+        body {
+            background: #f8fafc;
+            color: #222;
+        }
 
-body{
-background:#f8fafc;
-color:#222;
-}
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, .1);
+        }
 
-nav{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px 8%;
-background:white;
-position:sticky;
-top:0;
-z-index:1000;
-box-shadow:0 2px 10px rgba(0,0,0,.1);
-}
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #2563eb;
+        }
 
-.logo{
-font-size:1.8rem;
-font-weight:bold;
-color:#2563eb;
-}
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
 
-nav ul{
-display:flex;
-list-style:none;
-gap:25px;
-}
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            transition: .3s;
+        }
 
-nav a{
-text-decoration:none;
-color:#333;
-font-weight:600;
-transition:.3s;
-}
+        nav a:hover {
+            color: #2563eb;
+        }
 
-nav a:hover{
-color:#2563eb;
-}
+        .hero {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            background:
+                linear-gradient(135deg, #dbeafe, #ffffff);
+        }
 
-.hero{
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:20px;
-background:
-linear-gradient(135deg,#dbeafe,#ffffff);
-}
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+        }
 
-.hero h1{
-font-size:3.5rem;
-margin-bottom:10px;
-}
+        .hero span {
+            color: #2563eb;
+        }
 
-.hero span{
-color:#2563eb;
-}
+        .hero h2 {
+            margin-bottom: 15px;
+        }
 
-.hero h2{
-margin-bottom:15px;
-}
+        .hero p {
+            max-width: 700px;
+            margin: auto;
+            margin-bottom: 25px;
+        }
 
-.hero p{
-max-width:700px;
-margin:auto;
-margin-bottom:25px;
-}
+        .btn {
+            background: #2563eb;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 10px;
+            text-decoration: none;
+            display: inline-block;
+            transition: .3s;
+        }
 
-.btn{
-background:#2563eb;
-color:white;
-padding:12px 28px;
-border-radius:10px;
-text-decoration:none;
-display:inline-block;
-transition:.3s;
-}
+        .btn:hover {
+            transform: translateY(-4px);
+        }
 
-.btn:hover{
-transform:translateY(-4px);
-}
+        section {
+            padding: 80px 10%;
+        }
 
-section{
-padding:80px 10%;
-}
+        section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #2563eb;
+            margin-bottom: 40px;
+        }
 
-section h2{
-text-align:center;
-font-size:2.5rem;
-color:#2563eb;
-margin-bottom:40px;
-}
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, .1);
+        }
 
-.card{
-background:white;
-padding:25px;
-border-radius:15px;
-box-shadow:0 5px 15px rgba(0,0,0,.1);
-}
+        .qualification-list {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
 
-.qualification-list{
-display:grid;
-grid-template-columns:
-repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
-}
+        .skills-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+        }
 
-.skills-grid{
-display:grid;
-grid-template-columns:
-repeat(auto-fit,minmax(150px,1fr));
-gap:20px;
-}
+        .skill {
+            background: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, .1);
+            transition: .3s;
+        }
 
-.skill{
-background:white;
-padding:20px;
-text-align:center;
-border-radius:15px;
-font-weight:bold;
-cursor:pointer;
-box-shadow:0 5px 15px rgba(0,0,0,.1);
-transition:.3s;
-}
+        .skill:hover {
+            background: #2563eb;
+            color: white;
+            transform: translateY(-8px);
+        }
 
-.skill:hover{
-background:#2563eb;
-color:white;
-transform:translateY(-8px);
-}
+        .project-container {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
 
-.project-container{
-display:grid;
-grid-template-columns:
-repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-}
+        .project-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, .1);
+            transition: .3s;
+        }
 
-.project-card{
-background:white;
-padding:25px;
-border-radius:15px;
-box-shadow:0 5px 15px rgba(0,0,0,.1);
-transition:.3s;
-}
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
 
-.project-card:hover{
-transform:translateY(-10px);
-}
+        .contact-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(170px, 1fr));
+            gap: 20px;
+        }
 
-.contact-grid{
-display:grid;
-grid-template-columns:
-repeat(auto-fit,minmax(170px,1fr));
-gap:20px;
-}
+        .contact-grid a {
+            background: white;
+            padding: 20px;
+            text-align: center;
+            text-decoration: none;
+            color: #333;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, .1);
+            transition: .3s;
+        }
 
-.contact-grid a{
-background:white;
-padding:20px;
-text-align:center;
-text-decoration:none;
-color:#333;
-border-radius:15px;
-box-shadow:0 5px 15px rgba(0,0,0,.1);
-transition:.3s;
-}
+        .contact-grid a:hover {
+            background: #2563eb;
+            color: white;
+        }
 
-.contact-grid a:hover{
-background:#2563eb;
-color:white;
-}
+        .contact-grid i {
+            display: block;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
 
-.contact-grid i{
-display:block;
-font-size:2rem;
-margin-bottom:10px;
-}
+        footer {
+            text-align: center;
+            padding: 30px;
+            margin-top: 30px;
+            background: white;
+        }
 
-footer{
-text-align:center;
-padding:30px;
-margin-top:30px;
-background:white;
-}
+        /* MODAL */
 
-/* MODAL */
+        .modal {
+            display: none;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+        }
 
-.modal{
-display:none;
-position:fixed;
-left:0;
-top:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.5);
-backdrop-filter:blur(5px);
-justify-content:center;
-align-items:center;
-z-index:999;
-}
+        .modal-content {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            width: 90%;
+            max-width: 550px;
+            border-radius: 20px;
+            position: relative;
+            animation: popup .4s ease;
+            text-align: center;
+        }
 
-.modal-content{
-background:rgba(255,255,255,0.95);
-padding:30px;
-width:90%;
-max-width:550px;
-border-radius:20px;
-position:relative;
-animation:popup .4s ease;
-text-align:center;
-}
+        .close {
+            position: absolute;
+            right: 20px;
+            top: 10px;
+            font-size: 30px;
+            cursor: pointer;
+            color: #2563eb;
+        }
 
-.close{
-position:absolute;
-right:20px;
-top:10px;
-font-size:30px;
-cursor:pointer;
-color:#2563eb;
-}
-#certificates{
-background:#f8fafc;
-}
+        #certificates {
+            background: #f8fafc;
+        }
 
-.certificate-grid{
-display:grid;
-grid-template-columns:
-repeat(auto-fit,minmax(280px,1fr));
-gap:20px;
-}
+        .certificate-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
 
-.certificate-card{
-background:#ffffff;
-padding:25px;
-border-radius:16px;
-border:1px solid #e5e7eb;
-transition:.3s ease;
-}
+        .certificate-card {
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 16px;
+            border: 1px solid #e5e7eb;
+            transition: .3s ease;
+        }
 
-.certificate-card:hover{
-transform:translateY(-5px);
-box-shadow:0 8px 20px rgba(37,99,235,.08);
-}
+        .certificate-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(37, 99, 235, .08);
+        }
 
-.certificate-card h3{
-color:#2563eb;
-font-size:1.1rem;
-margin-bottom:8px;
-}
+        .certificate-card h3 {
+            color: #2563eb;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
 
-.certificate-card p{
-color:#6b7280;
-margin-bottom:15px;
-}
+        .certificate-card p {
+            color: #6b7280;
+            margin-bottom: 15px;
+        }
 
-.certificate-card a{
-text-decoration:none;
-color:#2563eb;
-font-weight:600;
-}
+        .certificate-card a {
+            text-decoration: none;
+            color: #2563eb;
+            font-weight: 600;
+        }
 
-.certificate-card a:hover{
-text-decoration:underline;
-}
+        .certificate-card a:hover {
+            text-decoration: underline;
+        }
 
-.progress-section{
-margin-top:20px;
-}
+        .progress-section {
+            margin-top: 20px;
+        }
 
-.progress-bar{
-height:20px;
-background:#d1d5db;
-border-radius:20px;
-overflow:hidden;
-}
+        .progress-bar {
+            height: 20px;
+            background: #d1d5db;
+            border-radius: 20px;
+            overflow: hidden;
+        }
 
-#skillProgress{
-height:100%;
-width:0;
-transition:1s;
-background:linear-gradient(
-90deg,
-#60a5fa,
-#2563eb
-);
-}
+        #skillProgress {
+            height: 100%;
+            width: 0;
+            transition: 1s;
+            background: linear-gradient(90deg,
+                    #60a5fa,
+                    #2563eb);
+        }
 
-.project-info{
-margin-top:20px;
-}
+        .project-info {
+            margin-top: 20px;
+        }
 
-@keyframes popup{
+        @keyframes popup {
 
-from{
-opacity:0;
-transform:scale(0.7);
-}
+            from {
+                opacity: 0;
+                transform: scale(0.7);
+            }
 
-to{
-opacity:1;
-transform:scale(1);
-}
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
 
-}
+        }
 
-@media(max-width:768px){
+        @media(max-width:768px) {
 
-.hero h1{
-font-size:2.3rem;
-}
+            .hero h1 {
+                font-size: 2.3rem;
+            }
 
-nav{
-flex-direction:column;
-gap:15px;
-}
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
 
-nav ul{
-flex-wrap:wrap;
-justify-content:center;
-}
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
 
-}
-
-</style>
+        }
+    </style>
 
 </head>
 
 <body>
 
-<nav>
+    <nav>
 
-<div class="logo">Portfolio</div>
+        <div class="logo">Portfolio</div>
 
-<ul>
-<li><a href="#about">About</a></li>
-<li><a href="#academics">Academics</a></li>
-<li><a href="#skills">Skills</a></li>
-<li><a href="#projects">Projects</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#academics">Academics</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
 
-</nav>
+    </nav>
 
-<header class="hero">
+    <header class="hero">
 
-<div>
+        <div>
 
-<h1>Hello, I'm <span>Abhijeet Shakya</span></h1>
+            <h1>Hello, I'm <span>Abhijeet Shakya</span></h1>
 
-<h2>Aspiring AI/ML Engineer</h2>
+            <h2>Aspiring AI/ML Engineer</h2>
 
-<p>
-Passionate about Artificial Intelligence,
-Machine Learning, Software Development Data Analytics and
-building solutions that solve real-world problems.
-</p>
+            <p>
+                Passionate about Artificial Intelligence,
+                Machine Learning, Software Development Data Analytics and
+                building solutions that solve real-world problems.
+            </p>
 
-<a href="#contact" class="btn">
-Contact Me
-</a>
-
-</div>
-
-</header>
-
-<section id="about" data-aos="fade-up">
-
-<h2>My Story</h2>
-
-<div class="card">
-
-<p>
-
-Hi, I'm a Computer Science Engineering student with a passion for learning and self-improvement. I come from a small village in Uttar Pradesh, where I spent my early years and built a strong academic foundation throughout school.
-
-Being an introverted person, I have always enjoyed spending time exploring new ideas, watching movies, and diving into the world of anime, which helped me develop curiosity and creativity.
-
-After completing my 10th grade, I moved to the city for higher education and completed my intermediate studies. This journey exposed me to new opportunities and experiences that shaped my personality and goals.
-
-Currently, I am pursuing a B.Tech in Computer Science Engineering and focusing on Data Structures & Algorithms, Artificial Intelligence, Machine Learning, Web Development, and Software Engineering. I love learning new skills and continuously improving myself to become a successful AI/ML Engineer.
-
-</p>
-
-</div>
-
-</section>
-
-
-<section id="academics" data-aos="fade-right">
-
-<h2>Academic Details</h2>
-<div class="card">
-<h3>Class 10</h3>
-<p>Passed in 2021</p>
-<p>With grate academic having 81.7 percent.</p>
-</div>
-<br>
-<div class="card">
-<h3>Class 12</h3>
-<p>Passed in 2023</p>
-<p>As a grate learner with 86.6 percent.</p>
-</div>
-<br>
-<div class="card">
-
-<h3>B.Tech - Computer Science Engineering</h3>
-
-<p>Current Student</p>
-
-<p>Focused on AI, ML, DSA, Analytics and Software Development.</p>
-
-</div>
-
-</section>
-
-<section id="qualification" data-aos="fade-left">
-
-<h2>Qualifications</h2>
-
-<div class="qualification-list">
-
-<div class="card">Data Structures & Algorithms</div>
-
-<div class="card">Object Oriented Programming</div>
-
-<div class="card">Database Management System</div>
-
-<div class="card">Web Development</div>
-
-<div class="card">Machine Learning</div>
-
-<div class="card">Git & GitHub</div>
-
-</div>
-
-</section>
-
-<section id="certificates" data-aos="fade-up">
-
-    <h2>Certifications</h2>
-
-    <div class="certificate-grid">
-
-        <div class="certificate-card">
-            <h3>Python Programming</h3>
-            <p>Issued by Coursera</p>
-            <a href="certificate-link-1" target="_blank">
-                View Certificate
+            <a href="#contact" class="btn">
+                Contact Me
             </a>
+
         </div>
 
-        <div class="certificate-card">
-            <h3>Machine Learning</h3>
-            <p>Issued by Google</p>
-            <a href="certificate-link-2" target="_blank">
-                View Certificate
-            </a>
+    </header>
+
+    <section id="about" data-aos="fade-up">
+
+        <h2>My Story</h2>
+
+        <div class="card">
+
+            <p>
+
+                Hi, I'm a Computer Science Engineering student with a passion for learning and self-improvement. I come
+                from a small village in Uttar Pradesh, where I spent my early years and built a strong academic
+                foundation throughout school.
+
+                Being an introverted person, I have always enjoyed spending time exploring new ideas, watching movies,
+                and diving into the world of anime, which helped me develop curiosity and creativity.
+
+                After completing my 10th grade, I moved to the city for higher education and completed my intermediate
+                studies. This journey exposed me to new opportunities and experiences that shaped my personality and
+                goals.
+
+                Currently, I am pursuing a B.Tech in Computer Science Engineering and focusing on Data Structures &
+                Algorithms, Artificial Intelligence, Machine Learning, Web Development, and Software Engineering. I love
+                learning new skills and continuously improving myself to become a successful AI/ML Engineer.
+
+            </p>
+
         </div>
 
-        <div class="certificate-card">
-            <h3>SQL for Data Analysis</h3>
-            <p>Issued by Udemy</p>
-            <a href="certificate-link-3" target="_blank">
-                View Certificate
-            </a>
+    </section>
+
+
+    <section id="academics" data-aos="fade-right">
+
+        <h2>Academic Details</h2>
+        <div class="card">
+            <h3>Class 10</h3>
+            <p>Passed in 2021</p>
+            <p>With grate academic having 81.7 percent.</p>
+        </div>
+        <br>
+        <div class="card">
+            <h3>Class 12</h3>
+            <p>Passed in 2023</p>
+            <p>As a grate learner with 86.6 percent.</p>
+        </div>
+        <br>
+        <div class="card">
+
+            <h3>B.Tech - Computer Science Engineering</h3>
+
+            <p>Current Student</p>
+
+            <p>Focused on AI, ML, DSA, Analytics and Software Development.</p>
+
         </div>
 
-        <div class="certificate-card">
-            <h3>Git & GitHub</h3>
-            <p>Issued by Great Learning</p>
-            <a href="certificate-link-4" target="_blank">
-                View Certificate
+    </section>
+
+    <section id="qualification" data-aos="fade-left">
+
+        <h2>Qualifications</h2>
+
+        <div class="qualification-list">
+
+            <div class="card">Data Structures & Algorithms</div>
+
+            <div class="card">Object Oriented Programming</div>
+
+            <div class="card">Database Management System</div>
+
+            <div class="card">Web Development</div>
+
+            <div class="card">Machine Learning</div>
+
+            <div class="card">Git & GitHub</div>
+
+        </div>
+
+    </section>
+
+    <section id="certificates" data-aos="fade-up">
+
+        <h2>Certifications</h2>
+
+        <div class="certificate-grid">
+
+            <div class="certificate-card">
+                <h3>DEloitte Data Analytics Job semulation completion certificate</h3>
+                <p>Issued by Deloitte</p>
+                <a href="a:\Certificate\Deloitte_completion_certificate.pdf" target="_blank">
+                    View Certificate
+                </a>
+            </div>
+
+            <div class="certificate-card">
+                <h3>Machine Learning</h3>
+                <p>Issued by Google</p>
+                <a href="certificate-link-2" target="_blank">
+                    View Certificate
+                </a>
+            </div>
+
+            <div class="certificate-card">
+                <h3>SQL for Data Analysis</h3>
+                <p>Issued by Udemy</p>
+                <a href="certificate-link-3" target="_blank">
+                    View Certificate
+                </a>
+            </div>
+
+            <div class="certificate-card">
+                <h3>Git & GitHub</h3>
+                <p>Issued by Great Learning</p>
+                <a href="certificate-link-4" target="_blank">
+                    View Certificate
+                </a>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section id="skills" data-aos="zoom-in">
+
+        <h2>Technical Skills</h2>
+
+        <div class="skills-grid">
+
+            <div class="skill" onclick="showSkill('Python')">Python</div>
+
+            <div class="skill" onclick="showSkill('C++')">C++</div>
+
+            <div class="skill" onclick="showSkill('JavaScript')">JavaScript</div>
+
+            <div class="skill" onclick="showSkill('HTML')">HTML</div>
+
+            <div class="skill" onclick="showSkill('CSS')">CSS</div>
+
+            <div class="skill" onclick="showSkill('SQL')">SQL</div>
+
+            <div class="skill" onclick="showSkill('Machine Learning')">
+                Machine Learning
+            </div>
+
+            <div class="skill" onclick="showSkill('Git')">
+                Git & GitHub
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="projects" data-aos="fade-up">
+
+        <h2>Projects</h2>
+
+        <div class="project-container">
+
+            <div class="project-card">
+
+                <h3>AI Resume Analyzer</h3>
+
+                <p>
+                    Resume screening tool that compares resumes with
+                    industry-required skills and generates ratings.
+                </p>
+
+            </div>
+
+            <div class="project-card">
+
+                <h3>Portfolio Website</h3>
+
+                <p>
+                    Professional responsive portfolio showcasing projects,
+                    skills, and achievements.
+                </p>
+
+            </div>
+
+            <div class="project-card">
+
+                <h3>Student Management System</h3>
+
+                <p>
+                    CRUD-based database application using SQL and Web
+                    Technologies.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="contact" data-aos="fade-up">
+
+        <h2>Contact Me</h2>
+
+        <div class="contact-grid">
+
+            <a href="mailto:abhijeetshakya485@gmail.com">
+                <i class="fas fa-envelope"></i>
+                Email
             </a>
+
+            <a href="https://www.linkedin.com/in/abhijeet-shakya-12hi1055t" target="_blank">
+                <i class="fab fa-linkedin"></i>
+                LinkedIn
+            </a>
+
+            <a href="https://github.com/abhijeetshakya485-ui" target="_blank">
+                <i class="fab fa-github"></i>
+                GitHub
+            </a>
+
+
+            <a href="tel:+910000000000">
+                <i class="fas fa-phone"></i>
+                Phone
+            </a>
+
+        </div>
+
+    </section>
+
+    <footer>
+
+        <p>
+            © 2026 Abhijeet shakya | All Rights Reserved
+        </p>
+
+    </footer>
+
+    <!-- SKILL POPUP -->
+
+    <div id="skillModal" class="modal">
+
+        <div class="modal-content">
+
+            <span class="close" onclick="closeModal()">
+                &times;
+            </span>
+
+            <h2 id="skillTitle"></h2>
+
+            <p id="skillDescription"></p>
+
+            <div class="progress-section">
+
+                <h4>Proficiency</h4>
+
+                <div class="progress-bar">
+                    <div id="skillProgress"></div>
+                </div>
+
+            </div>
+
+            <div class="project-info">
+
+                <h4>Related Projects</h4>
+
+                <p id="skillProjects"></p>
+
+            </div>
+
         </div>
 
     </div>
 
-</section>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
+    <script>
 
-<section id="skills" data-aos="zoom-in">
+        AOS.init({
+            duration: 1200,
+            once: true
+        });
 
-<h2>Technical Skills</h2>
+        const skills = {
 
-<div class="skills-grid">
+            Python: {
+                description: "Python is used for AI, Machine Learning, Data Science, Automation, and Backend Development.",
+                progress: "90%",
+                projects: "AI Resume Analyzer, Data Analytics Projects"
+            },
 
-<div class="skill" onclick="showSkill('Python')">Python</div>
+            "C++": {
+                description: "C++ is widely used in Data Structures, Algorithms, Competitive Programming and Software Development.",
+                progress: "85%",
+                projects: "DSA Practice, Competitive Coding Solutions"
+            },
 
-<div class="skill" onclick="showSkill('C++')">C++</div>
+            JavaScript: {
+                description: "JavaScript creates dynamic and interactive web experiences.",
+                progress: "80%",
+                projects: "Portfolio Website, Web Applications"
+            },
 
-<div class="skill" onclick="showSkill('JavaScript')">JavaScript</div>
+            HTML: {
+                description: "HTML provides the structure and content of websites.",
+                progress: "95%",
+                projects: "Portfolio Website, Landing Pages"
+            },
 
-<div class="skill" onclick="showSkill('HTML')">HTML</div>
+            CSS: {
+                description: "CSS is used for styling and responsive designs.",
+                progress: "90%",
+                projects: "Modern UI Designs, Responsive Websites"
+            },
 
-<div class="skill" onclick="showSkill('CSS')">CSS</div>
+            SQL: {
+                description: "SQL helps manage and query databases effectively.",
+                progress: "85%",
+                projects: "Student Management System"
+            },
 
-<div class="skill" onclick="showSkill('SQL')">SQL</div>
+            "Machine Learning": {
+                description: "Machine Learning enables computers to learn from data and make intelligent decisions.",
+                progress: "75%",
+                projects: "Prediction Models, AI Applications"
+            },
 
-<div class="skill" onclick="showSkill('Machine Learning')">
-Machine Learning
-</div>
+            Git: {
+                description: "Git and GitHub are used for version control and team collaboration.",
+                progress: "85%",
+                projects: "All Development Projects"
+            }
 
-<div class="skill" onclick="showSkill('Git')">
-Git & GitHub
-</div>
+        };
 
-</div>
+        function showSkill(skill) {
 
-</section>
+            document.getElementById("skillTitle").innerText = skill;
 
-<section id="projects" data-aos="fade-up">
+            document.getElementById("skillDescription").innerText =
+                skills[skill].description;
 
-<h2>Projects</h2>
+            document.getElementById("skillProjects").innerText =
+                skills[skill].projects;
 
-<div class="project-container">
+            document.getElementById("skillModal").style.display = "flex";
 
-<div class="project-card">
+            setTimeout(() => {
+                document.getElementById("skillProgress").style.width =
+                    skills[skill].progress;
+            }, 100);
 
-<h3>AI Resume Analyzer</h3>
+        }
 
-<p>
-Resume screening tool that compares resumes with
-industry-required skills and generates ratings.
-</p>
+        function closeModal() {
 
-</div>
+            document.getElementById("skillModal").style.display = "none";
 
-<div class="project-card">
+            document.getElementById("skillProgress").style.width = "0";
 
-<h3>Portfolio Website</h3>
+        }
 
-<p>
-Professional responsive portfolio showcasing projects,
-skills, and achievements.
-</p>
+        window.onclick = function (event) {
 
-</div>
+            let modal = document.getElementById("skillModal");
 
-<div class="project-card">
+            if (event.target === modal) {
+                closeModal();
+            }
 
-<h3>Student Management System</h3>
+        };
 
-<p>
-CRUD-based database application using SQL and Web
-Technologies.
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<section id="contact" data-aos="fade-up">
-
-<h2>Contact Me</h2>
-
-<div class="contact-grid">
-
-<a href="mailto:abhijeetshakya485@gmail.com">
-    <i class="fas fa-envelope"></i>
-    Email
-</a>
-
-<a href="https://www.linkedin.com/in/abhijeet-shakya-12hi1055t" target="_blank">
-    <i class="fab fa-linkedin"></i>
-    LinkedIn
-</a>
-
-<a href="https://github.com/abhijeetshakya485-ui" target="_blank">
-    <i class="fab fa-github"></i>
-    GitHub
-</a>
-
-
-<a href="tel:+910000000000">
-<i class="fas fa-phone"></i>
-Phone
-</a>
-
-</div>
-
-</section>
-
-<footer>
-
-<p>
-© 2026 Abhijeet shakya | All Rights Reserved
-</p>
-
-</footer>
-
-<!-- SKILL POPUP -->
-
-<div id="skillModal" class="modal">
-
-<div class="modal-content">
-
-<span class="close" onclick="closeModal()">
-&times;
-</span>
-
-<h2 id="skillTitle"></h2>
-
-<p id="skillDescription"></p>
-
-<div class="progress-section">
-
-<h4>Proficiency</h4>
-
-<div class="progress-bar">
-<div id="skillProgress"></div>
-</div>
-
-</div>
-
-<div class="project-info">
-
-<h4>Related Projects</h4>
-
-<p id="skillProjects"></p>
-
-</div>
-
-</div>
-
-</div>
-
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-
-<script>
-
-AOS.init({
-duration:1200,
-once:true
-});
-
-const skills={
-
-Python:{
-description:"Python is used for AI, Machine Learning, Data Science, Automation, and Backend Development.",
-progress:"90%",
-projects:"AI Resume Analyzer, Data Analytics Projects"
-},
-
-"C++":{
-description:"C++ is widely used in Data Structures, Algorithms, Competitive Programming and Software Development.",
-progress:"85%",
-projects:"DSA Practice, Competitive Coding Solutions"
-},
-
-JavaScript:{
-description:"JavaScript creates dynamic and interactive web experiences.",
-progress:"80%",
-projects:"Portfolio Website, Web Applications"
-},
-
-HTML:{
-description:"HTML provides the structure and content of websites.",
-progress:"95%",
-projects:"Portfolio Website, Landing Pages"
-},
-
-CSS:{
-description:"CSS is used for styling and responsive designs.",
-progress:"90%",
-projects:"Modern UI Designs, Responsive Websites"
-},
-
-SQL:{
-description:"SQL helps manage and query databases effectively.",
-progress:"85%",
-projects:"Student Management System"
-},
-
-"Machine Learning":{
-description:"Machine Learning enables computers to learn from data and make intelligent decisions.",
-progress:"75%",
-projects:"Prediction Models, AI Applications"
-},
-
-Git:{
-description:"Git and GitHub are used for version control and team collaboration.",
-progress:"85%",
-projects:"All Development Projects"
-}
-
-};
-
-function showSkill(skill){
-
-document.getElementById("skillTitle").innerText=skill;
-
-document.getElementById("skillDescription").innerText=
-skills[skill].description;
-
-document.getElementById("skillProjects").innerText=
-skills[skill].projects;
-
-document.getElementById("skillModal").style.display="flex";
-
-setTimeout(()=>{
-document.getElementById("skillProgress").style.width=
-skills[skill].progress;
-},100);
-
-}
-
-function closeModal(){
-
-document.getElementById("skillModal").style.display="none";
-
-document.getElementById("skillProgress").style.width="0";
-
-}
-
-window.onclick=function(event){
-
-let modal=document.getElementById("skillModal");
-
-if(event.target===modal){
-closeModal();
-}
-
-};
-
-</script>
+    </script>
 
 </body>
+
 </html>
